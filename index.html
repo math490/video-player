@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Player Personalizado</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@1"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/size-config-styles.css">
+  </head>
+  <body>
+    <div class="player" id="player">
+      <video
+        id="video"
+        src="video/Ainz_VS_Gazef_Dublado.mp4"
+        controlsList="nodownload"
+      >
+        <track
+          id="track"
+          label="Português"
+          kind="subtitles"
+          srclang="pt"
+          src="legenda/legendas.vtt"
+          default
+        />
+      </video>
+      <div id="play-overlay">
+        <span class="material-icons">play_circle_filled</span>
+      </div>
+      <div class="paused-overlay" id="pausedOverlay"></div>
+      <div class="controls not-started" id="controls">
+        <div class="progress-container" id="progressContainer">
+          <div class="progress" id="progress"></div>
+          <div class="progress-thumb"></div>
+        </div>
+        <div class="control-bar">
+          <div class="left-controls">
+            <button title="Pausar/Despausar (espaço)" id="playPause">
+              <span class="material-icons">play_arrow</span>
+            </button>
+            <button title="Volume (cima/baixo)" id="mute">
+              <span class="material-symbols-outlined" id="volume-icon"
+                >volume_up</span
+              >
+            </button>
+            <div class="volume-container">
+              <div class="volume-bar"></div>
+              <div class="volume-thumb"></div>
+            </div>
+            <span id="timeDisplay">0:00</span>
+            <span class="barrinha">/</span>
+            <span id="timeDisplay-full">0:00</span>
+          </div>
+          <div class="right-controls">
+            <button title="Picture-In-Picture" id="pip">
+              <span class="material-icons">picture_in_picture_alt</span>
+            </button>
+            <div class="speed-control">
+              <button title="Controle de Velocidade" id="speed-toggle">
+                <span class="material-symbols-outlined">slow_motion_video</span>
+              </button>
+              <ul id="speed-menu" class="speed-options hidden">
+                <li data-speed="0.25">0.25x</li>
+                <li data-speed="0.5">0.5x</li>
+                <li data-speed="0.75">0.75x</li>
+                <li data-speed="1" class="active">Normal</li>
+                <li data-speed="1.25">1.25x</li>
+                <li data-speed="1.5">1.5x</li>
+                <li data-speed="2">2x</li>
+              </ul>
+            </div>
+            <button title="Download do Vídeo" id="download">
+              <span class="material-icons">file_download</span>
+            </button>
+            <button title="Legendas (c)" id="toggleSubtitles">
+              <span class="material-icons">subtitles</span>
+            </button>
+            <button title="Loop" id="loop">
+              <span class="material-icons">repeat</span>
+            </button>
+
+            <div class="settings-container" id="settings-container">
+              <button id="settings-toggle" class="material-symbols-outlined">
+                settings
+              </button>
+              <div id="settings-menu" class="settings-menu hidden">
+                <button class="menu-item" id="settings-loop"><span class="material-symbols-outlined">repeat</span>Loop</button>
+                <button class="menu-item" id="settings-speed"><span class="material-symbols-outlined">slow_motion_video</span>
+                  Velocidade
+                </button>
+                <button class="menu-item" id="settings-subtitles"><span class="material-symbols-outlined">subtitles</span>
+                  Legendas
+                </button>
+                <button class="menu-item" id="settings-download"><span class="material-icons">file_download</span>
+                  Download
+                </button>
+              </div>
+            </div>
+
+            <button title="Tela Cheia (f)" id="fullscreen">
+              <span class="material-icons">fullscreen</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="seek-left" class="seek-feedback-side left">
+        <span class="material-symbols-outlined arrows">fast_rewind</span>
+        <div class="label">5 seg</div>
+      </div>
+
+      <div id="seek-right" class="seek-feedback-side right">
+        <span class="material-symbols-outlined arrows">fast_forward</span>
+        <div class="label">5 seg</div>
+      </div>
+      <div class="custom-context-menu" id="custom-context-menu">
+        <ul>
+          <li id="save-frame">
+            <span class="material-symbols-outlined">photo_camera</span> Salvar
+            frame
+          </li>
+          <li id="restart-video">
+            <span class="material-symbols-outlined">replay</span> Reproduzir do
+            início
+          </li>
+          <li id="toggle-loop">
+            <span class="material-symbols-outlined">repeat</span> Loop
+          </li>
+          <li id="toggle-pip">
+            <span class="material-symbols-outlined"
+              >picture_in_picture_alt</span
+            >
+            Picture-in-Picture
+          </li>
+          <li id="toggle-subtitles">
+            <span class="material-symbols-outlined">subtitles</span> Legendas
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="scripts/script.js"></script>
+    <script src="scripts/size-config.js"></script>
+  </body>
+</html>
