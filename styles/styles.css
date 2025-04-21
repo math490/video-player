@@ -48,7 +48,6 @@ video {
   display: none;
   z-index: 9999;
   width: 180px;
-  font-family: sans-serif;
 }
 .custom-context-menu ul {
   list-style: none;
@@ -246,6 +245,13 @@ video {
   cursor: pointer;
 }
 
+.speed-control button:focus {
+  background: none;
+  border: none;
+  color: #8121da;
+  cursor: pointer;
+}
+
 .speed-options {
   position: absolute;
   bottom: 40px;
@@ -289,18 +295,22 @@ video {
   pointer-events: auto;
 }
 
+#download:focus {
+  color: #8121da;
+}
+
 .barrinha {
   margin: 0;
   margin-left: -15px;
 }
 
-.loop-active {
-  border-radius: 60px;
-  box-shadow: 0 0 10px #000000;
+.loop-active span {
+  border-radius: 5px;
+  color: #8121da;
 }
 
 .cc-active {
-  box-shadow: 0 0 10px #000000;
+  color: #8121da;
 }
 
 .player.hide-controls {
